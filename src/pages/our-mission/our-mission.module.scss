@@ -1,0 +1,78 @@
+@import '../../styles/mixins.module';
+@import '../../styles/variables.module';
+
+.wrapper {
+  @include df;
+  flex-wrap: wrap;
+  @include mq-desktop {
+    flex-wrap: nowrap;
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  height: auto;
+  order: 2;
+  @include mq-desktop {
+    order: 1;
+    width: 757px;
+  }
+}
+
+.image {
+  width: 757px;
+  height: 100%;
+  background-image: url(../../images/background-image.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text {
+  color: $c-text;
+  order: 1;
+  padding: 20px;
+  height: auto;
+  text-align: center;
+  @include mq-desktop {
+    padding: 150px 74px 78px;
+    text-align: left;
+    order: 2;
+  }
+
+  &__title {
+    margin-top: 150px;
+    font-size: $fs-title-s;
+    font-weight: $fw-bold;
+    @include mq-tablet {
+      font-size: $fs-title-m;
+    }
+    @include mq-desktop {
+      margin-top: 0;
+      margin-bottom: 70px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 20px;
+    font-size: $fs-subtitle-s;
+    font-weight: $fw-semi-bold;
+    @include mq-tablet {
+      font-size: $fs-subtitle-m;
+    }
+  }
+
+  &__description {
+    margin-bottom: 50px;
+    font-size: $fs-description-s;
+    font-weight: $fw-light;
+    @include mq-tablet {
+      font-size: $fs-description-m;
+    }
+  }
+}
+
+.logo {
+  position: absolute;
+  right: 120px;
+  top: 65px;
+}

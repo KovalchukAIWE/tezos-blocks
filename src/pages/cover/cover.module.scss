@@ -1,0 +1,102 @@
+@import '../../styles/mixins.module';
+@import '../../styles/variables.module';
+
+.wrapper {
+  @include df;
+  flex-wrap: wrap;
+  @include mq-desktop {
+    flex-wrap: nowrap;
+  }
+}
+
+.imageWrapper {
+  width: 757px;
+  height: auto;
+  order: 2;
+  @include mq-desktop {
+    order: 1;
+  }
+}
+
+.image {
+  width: 757px;
+  height: auto;
+  order: 2;
+  @include mq-desktop {
+    order: 1;
+  }
+  display: none;
+  @include mq-desktop {
+    display: block;
+    width: 757px;
+    height: 100%;
+    background-image: url(../../images/cover.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+}
+
+.link {
+  @include df;
+  flex-wrap: wrap;
+  column-gap: 11%;
+
+  &__item {
+    margin-top: 40px;
+    @include df;
+    align-items: center;
+  }
+
+  &__text {
+    text-decoration: none;
+    color: $c-text;
+    margin-left: 30px;
+    font-size: $fs-link-s;
+    @include mq-tablet {
+      font-size: $fs-link-m;
+    }
+  }
+}
+
+.logo {
+  position: absolute;
+  right: 120px;
+  top: 65px;
+}
+
+.text {
+  color: $c-text;
+  order: 1;
+  padding: 20px;
+  height: auto;
+  text-align: center;
+  @include mq-desktop {
+    padding: 150px 0 141px 74px;
+    text-align: left;
+    order: 2;
+  }
+
+  &__title {
+    margin-top: 150px;
+    margin-bottom: 33px;
+    font-size: $fs-title-s;
+    font-weight: $fw-bold;
+    @include mq-tablet {
+      font-size: $fs-title-m;
+    }
+    @include mq-desktop {
+      margin-top: 0;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 20px;
+    font-size: $fs-subtitle-s;
+    font-weight: $fw-light;
+    @include mq-tablet {
+      font-size: $fs-subtitle-m;
+      margin-bottom: 130px;
+    }
+  }
+}

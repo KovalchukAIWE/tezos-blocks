@@ -1,0 +1,64 @@
+@import '../../styles/mixins.module';
+@import '../../styles/variables.module';
+
+.wrapper {
+  @include df;
+  flex-wrap: wrap;
+  @include mq-desktop {
+    flex-wrap: nowrap;
+  }
+}
+
+.image {
+  height: auto;
+  order: 2;
+  width: 701px;
+  height: auto;
+  background-image: url(../../images/cover-alt.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include mq-desktop {
+    order: 1;
+  }
+}
+
+.text {
+  color: $c-text;
+  order: 1;
+  padding: 20px;
+  height: auto;
+  text-align: center;
+  @include mq-desktop {
+    padding: 347px 0 253px 107px;
+    text-align: left;
+    order: 2;
+    width: 955px;
+  }
+
+  &__title {
+    margin-top: 150px;
+    font-size: $fs-title-m;
+    font-weight: $fw-bold;
+    @include mq-tablet {
+      font-size: $fs-title;
+    }
+    @include mq-desktop {
+      margin-top: 0;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 20px;
+    font-size: $fs-subtitle-s;
+    font-weight: $fw-light;
+    @include mq-tablet {
+      font-size: $fs-subtitle-m;
+    }
+  }
+}
+
+.logo {
+  position: absolute;
+  right: 120px;
+  top: 65px;
+}

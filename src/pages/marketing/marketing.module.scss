@@ -1,0 +1,88 @@
+@import '../../styles/mixins.module';
+@import '../../styles/variables.module';
+
+.image {
+  display: none;
+  @include mq-desktop {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../images/marketing.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  height: auto;
+  order: 2;
+  @include mq-desktop {
+    order: 1;
+  }
+}
+
+.links {
+  @include df;
+  flex-wrap: wrap;
+
+  &__text {
+    margin-left: 40px;
+    margin-bottom: 65px;
+  }
+
+  &__item {
+    @include df;
+  }
+
+  &__title {
+    font-size: $fs-subtitle-s;
+    font-weight: $fw-light;
+    margin-bottom: 10px;
+    @include mq-tablet {
+      font-size: $fs-subtitle;
+    }
+  }
+
+  &__subtitle {
+    font-size: $fs-description-s;
+    font-weight: $fw-light;
+    @include mq-tablet {
+      font-size: $fs-description-m;
+    }
+  }
+}
+
+.text {
+  color: $c-text;
+  order: 1;
+  padding: 20px;
+  height: auto;
+  text-align: center;
+  @include mq-desktop {
+    padding-left: 50%;
+    padding-top: 150px;
+    padding-bottom: 242px;
+    text-align: left;
+    order: 2;
+  }
+
+  &__title {
+    margin-top: 150px;
+    margin-bottom: 80px;
+    font-size: $fs-title-s;
+    font-weight: $fw-semi-bold;
+    @include mq-tablet {
+      font-size: $fs-title-m;
+    }
+    @include mq-desktop {
+      margin-top: 0;
+    }
+  }
+}
+
+.logo {
+  position: absolute;
+  right: 120px;
+  top: 65px;
+}

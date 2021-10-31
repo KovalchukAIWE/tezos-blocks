@@ -1,0 +1,30 @@
+@import '../../styles/mixins.module';
+@import '../../styles/variables.module';
+
+.list {
+  &__item {
+    @include df;
+  }
+
+  &__text {
+    width: 450px;
+    margin-bottom: 103px;
+  }
+
+  &__title {
+    font-size: $fs-subtitle-s;
+    font-weight: $fw-light;
+    margin-bottom: 23px;
+    @include mq-tablet {
+      font-size: $fs-subtitle-m;
+    }
+  }
+
+  &__subtitle {
+    font-size: $fs-description-s;
+    font-weight: $fw-light;
+    @include mq-tablet {
+      font-size: $fs-description-m;
+    }
+  }
+}

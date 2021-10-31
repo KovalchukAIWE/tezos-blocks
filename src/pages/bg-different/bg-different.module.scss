@@ -1,0 +1,60 @@
+@import '../../styles/mixins.module';
+@import '../../styles/variables.module';
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../images/background.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  &__text {
+    color: $c-text-white;
+    height: inherit;
+    margin: 0 auto;
+    width: 900px;
+    padding-top: 150px;
+    font-weight: $fw-bold;
+    font-size: $fs-title-s;
+
+    @include mq-tablet {
+      font-size: $fs-title-m;
+    }
+  }
+}
+
+.cards {
+  position: absolute;
+  width: 83%;
+  top: 450px;
+  left: 177px;
+  @include df;
+  justify-content: space-between;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.card {
+  width: 344px;
+  @include df;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  color: $c-text-white;
+
+  &__title {
+    font-size: $fs-subtitle-m;
+    font-weight: $fw-semi-bold;
+  }
+
+  &__subtitle {
+    font-size: $fs-subtitle;
+    font-weight: $fw-light;
+  }
+}
+
+.logo {
+  position: absolute;
+  right: 120px;
+  top: 65px;
+}

@@ -1,0 +1,42 @@
+@import '../../styles/mixins.module';
+@import '../../styles/variables.module';
+
+.teammates {
+  &__card {
+    width: 542px;
+    height: 191px;
+    display: flex;
+    margin-bottom: 60px;
+    margin-right: 18px;
+  }
+
+  &__photo {
+    width: 90px;
+    height: 90px;
+    @include mq-tablet {
+      width: 191px;
+      height: 191px;
+    }
+  }
+
+  &__description {
+    align-items: center;
+    padding-top: 18px;
+    padding-left: 20px;
+    font-size: $fs-card;
+    font-weight: $fw-light;
+    @include mq-tablet {
+      padding-top: 40px;
+    }
+  }
+
+  &__name {
+    font-size: $fs-subtitle-m;
+    font-weight: $fw-light;
+  }
+
+  &__role {
+    font-size: $fs-description-m;
+    font-weight: $fw-light;
+  }
+}

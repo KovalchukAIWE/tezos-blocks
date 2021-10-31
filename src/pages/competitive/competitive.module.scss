@@ -1,0 +1,62 @@
+@import '../../styles/mixins.module';
+@import '../../styles/variables.module';
+
+.wrapper {
+  width: 100%;
+  height: auto;
+  order: 2;
+  @include mq-desktop {
+    order: 1;
+  }
+}
+
+.image {
+  display: none;
+  @include mq-desktop {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../images/competitive.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100%;
+  }
+}
+
+.list {
+  @include df;
+  flex-wrap: wrap;
+  width: 972px;
+  justify-content: space-between;
+}
+
+.text {
+  color: $c-text;
+  order: 1;
+  padding: 20px;
+  height: auto;
+  text-align: center;
+  @include mq-desktop {
+    padding-bottom: 194px;
+    padding-top: 150px;
+    padding-left: 87px;
+    text-align: left;
+    order: 2;
+  }
+
+  &__title {
+    margin-bottom: 70px;
+    font-size: $fs-title-s;
+    font-weight: $fw-semi-bold;
+
+    @include mq-tablet {
+      font-size: $fs-title-m;
+    }
+  }
+}
+
+.logo {
+  position: absolute;
+  right: 120px;
+  top: 65px;
+}

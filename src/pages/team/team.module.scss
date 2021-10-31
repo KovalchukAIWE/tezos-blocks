@@ -1,0 +1,59 @@
+@import '../../styles/mixins.module';
+@import '../../styles/variables.module';
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  @include mq-desktop {
+    justify-content: space-evenly;
+    padding: 344px 0 234px 0;
+    margin: 0 auto;
+  }
+}
+
+.text {
+  color: $c-text;
+  width: 550px;
+  text-align: center;
+  @include mq-desktop {
+    text-align: left;
+  }
+
+  &__title {
+    margin-top: 150px;
+    font-size: $fs-title-s;
+    font-weight: $fw-bold;
+    @include mq-tablet {
+      font-size: $fs-title-m;
+    }
+    @include mq-desktop {
+      margin-top: 0;
+    }
+  }
+
+  &__description {
+    font-size: $fs-description-s;
+    font-weight: $fw-light;
+    @include mq-tablet {
+      font-size: $fs-description-m;
+    }
+  }
+}
+
+.teammates {
+  color: $c-text;
+  width: 1120px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.logo {
+  position: absolute;
+  right: 120px;
+  top: 65px;
+}

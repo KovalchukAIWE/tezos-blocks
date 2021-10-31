@@ -1,0 +1,15 @@
+@mixin mq-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mq-desktop {
+  @media (min-width: 1224px) {
+    @content;
+  }
+}
+
+@mixin df {
+  display: flex;
+}

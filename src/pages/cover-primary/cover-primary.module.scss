@@ -1,0 +1,100 @@
+@import '../../styles/mixins.module';
+@import '../../styles/variables.module';
+
+.wrapper {
+  @include df;
+  flex-wrap: wrap;
+  @include mq-desktop {
+    flex-wrap: nowrap;
+  }
+}
+
+.imageWrapper {
+  padding: 20px;
+  width: 100%;
+  height: auto;
+  background-color: $c-bg;
+  order: 2;
+  @include mq-desktop {
+    order: 1;
+    width: 757px;
+    padding: 93px 0;
+  }
+}
+
+.image {
+  display: none;
+  @include mq-desktop {
+    display: block;
+    width: 757px;
+    height: 100%;
+    background-image: url(../../images/mobile-phone.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+  }
+}
+
+.text {
+  color: $c-text;
+  order: 1;
+  padding: 20px;
+  height: auto;
+  text-align: center;
+  @include mq-desktop {
+    padding: 150px 74px 221px;
+    text-align: left;
+    order: 2;
+  }
+
+  &__title {
+    margin-top: 150px;
+    font-size: $fs-title-s;
+    font-weight: $fw-bold;
+    @include mq-tablet {
+      font-size: $fs-title-m;
+    }
+    @include mq-desktop {
+      margin-top: 0;
+      margin-bottom: 53px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 20px;
+    font-size: $fs-subtitle-s;
+    font-weight: $fw-light;
+    @include mq-tablet {
+      font-size: $fs-subtitle-m;
+      margin-bottom: 100px;
+    }
+  }
+}
+
+.link {
+  @include df;
+  flex-wrap: wrap;
+  column-gap: 5%;
+
+  &__item {
+    margin-top: 60px;
+    @include df;
+    align-items: center;
+  }
+
+  &__text {
+    text-decoration: none;
+    color: $c-text;
+    margin-left: 30px;
+    font-size: $fs-link-s;
+    @include mq-tablet {
+      font-size: $fs-link-m;
+    }
+  }
+}
+
+.logo {
+  position: absolute;
+  right: 120px;
+  top: 65px;
+}
