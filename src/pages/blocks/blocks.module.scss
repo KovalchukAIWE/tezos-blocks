@@ -1,41 +1,28 @@
-.wrapper {
+.blocks {
   width: 100%;
   height: auto;
   background: #e0f0ec;
   padding: 10px 15px;
-}
 
-.block_header {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px 0 5px 10px;
-}
-
-.select {
-  width: 110px;
-  height: 30px;
-}
-
-.buttons {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 15px;
-  margin-bottom: 20px;
-}
-
-.button {
-  width: 50px;
-  height: 30px;
-  margin: 5px;
-  border: 1px solid #e0f0ec;
-  &:hover {
-    cursor: pointer;
-    background-color: #e0f0ec;
+  &__header {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 5px 10px;
   }
-}
 
-.page {
-  display: flex;
-  justify-content: flex-end;
+  &__select {
+    display: flex;
+    margin: 30px;
+  }
+
+  &__quantity {
+    width: 110px;
+    height: 30px;
+    margin-left: 10px;
+  }
+
+  &__page {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

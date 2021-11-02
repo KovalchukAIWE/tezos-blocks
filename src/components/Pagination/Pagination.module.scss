@@ -1,34 +1,45 @@
 @import '../../styles/mixins.module.scss';
 @import '../../styles/variables.module';
 
-.wrapper {
+.paginate {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   padding: 15px;
-}
 
-.pages {
-  width: auto;
-  display: flex;
-  list-style: none;
-  justify-content: space-around;
-}
+  &__pages {
+    width: auto;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+  }
 
-.link {
-  text-decoration: none;
-  padding: 5px 8px;
-  color: $c-text;
-}
+  &__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15px;
+    margin-bottom: 20px;
+  }
 
-.link.active {
-  background-color: #4caf50;
-  color: white;
-}
+  &__button {
+    width: 50px;
+    height: 30px;
+    margin: 5px;
+    border: 1px solid #e0f0ec;
+    &:hover {
+      cursor: pointer;
+      background-color: #e0f0ec;
+    }
+  }
 
-// .list a:hover:not(.active) {background-color: #ddd;}
-
-.link:hover {
-  background-color: #e0f0ec;
-  cursor: pointer;
+  &__link {
+    text-decoration: none;
+    padding: 5px 8px;
+    color: $c-text;
+    &:hover {
+      background-color: #e0f0ec;
+      cursor: pointer;
+    }
+  }
 }

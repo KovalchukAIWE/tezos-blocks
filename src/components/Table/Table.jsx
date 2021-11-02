@@ -8,8 +8,6 @@ const dayjs = require('dayjs');
 
 const Table = () => {
   const { blocks } = useContext(BlocksContext);
-  console.log(Object.values(blocks));
-
   return (
     <div className={styles.block}>
       <table className={styles.table}>
@@ -39,15 +37,15 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {Object.values(blocks).map((item) => {
+          {blocks.map((item) => {
             return (
               <>
                 <tr key={item.baker}>
                   <td>
-                    <div className={styles.row_title}>{item.level}</div>
+                    <div className={styles.row_title}>{item.level.toLocaleString()}</div>
                   </td>
                   <td>
-                    <div className={styles.row_title}>{item.bakerName}</div>
+                    <div className={styles.row_title}>{item.bakerName || '- - -'}</div>
                   </td>
                   <td>
                     <div className={styles.row_title}>
