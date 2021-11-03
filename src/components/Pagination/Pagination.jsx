@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { BlocksContext } from '../../components/Provider/Provider';
 
 import styles from './Pagination.module.scss';
 
-const Pagination = ({ limit, totalCount, paginate, currentBlock, setCurrentPage}) => {
+const Pagination = ({ limit, paginate, currentBlock, setCurrentPage, setOffset}) => {
   const pageNumbers = [];
-
-  const nextPage = () => setCurrentPage((prev) => prev + 1);
-  const prevPage = () => setCurrentPage((prev) => prev - 1);
+  const { handleOffset, offset } = useContext(BlocksContext);
 
 
-  for (let i = 1; i <= Math.ceil(totalCount / limit); i += 1) {
+
+  for (let i = 1; i <= Math.ceil(offset / limit); i += 1) {
     pageNumbers.push(i);
   }
 
@@ -30,10 +30,10 @@ const Pagination = ({ limit, totalCount, paginate, currentBlock, setCurrentPage}
         ))}
       </ul>
       <div className={styles.paginate__buttons}>
-        <button className={styles.paginate__button} type="button" onClick={prevPage}>
+        <button className={styles.paginate__button} type="button" onClick={()=>handleOffset(offset - limit)}>
           prev
         </button>
-        <button className={styles.paginate__button} type="button" onClick={nextPage}>
+        <button className={styles.paginate__button} type="button" onClick={()=>handleOffset(offset + limit)}>
           next
         </button>
       </div>

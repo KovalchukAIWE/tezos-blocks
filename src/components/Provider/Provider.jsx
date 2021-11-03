@@ -21,6 +21,7 @@ const Provider = ({ children }) => {
   }, [limit, offset]);
 
   const blocksContextValue = {
+    handleOffset: (value)=>setOffset(value),
     limit,
     setLimit,
     offset,
