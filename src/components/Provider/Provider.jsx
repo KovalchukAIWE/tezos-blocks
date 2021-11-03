@@ -8,8 +8,7 @@ const Provider = ({ children }) => {
   const [limit, setLimit] = useState(10);
   const [offset, setOffset] = useState(0);
   const [blocks, setBlocks] = useState([]);
-  const [totalCount, setTotalCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [totalCount, setTotalCount] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -20,15 +19,17 @@ const Provider = ({ children }) => {
     fetchData();
   }, [limit, offset]);
 
+  const handleLimit = (value) => {
+    setLimit(value);
+    setOffset(() => 0);
+  };
+
   const blocksContextValue = {
     handleOffset: (value)=>setOffset(value),
     limit,
-    setLimit,
+    handleLimit,
     offset,
     blocks,
-    currentPage,
-    setCurrentPage,
-    setTotalCount,
     totalCount,
   };
 

@@ -2,48 +2,34 @@ import React, { useContext }  from 'react';
 import { BlocksContext } from '../../components/Provider/Provider';
 import Table from '../../components/Table';
 import Pagination from '../../components/Pagination/Pagination';
+import { selectQuantityPages } from '../../helpers/selectQuantityPages';
+import Select from 'react-select';
 
 import styles from './blocks.module.scss';
 
 const Blocks = () => {
-  const { blocks, limit, currentPage, setCurrentPage, setLimit, setTotalCount} = useContext(BlocksContext);
+  const { blocks, limit, offset, handleLimit, totalCount} = useContext(BlocksContext);
 
-  const indexOfLastBlock = currentPage * limit;
+  const indexOfLastBlock = offset * limit;
   const indexOfFirstBlock = indexOfLastBlock - limit;
   const currentBlock = blocks.slice(indexOfFirstBlock, indexOfLastBlock);
-
-  const paginate = (pageNumber) => setTotalCount(pageNumber);
-
-  const selectQuantity = [10, 25, 50];
-  const handlePageSizeChange = (e) => {
-    setLimit(e.target.value);
-  }
   
   return (
     <>
       <div className={styles.blocks}>
-        <h2 className={styles.blocks__page}>Page {currentPage}</h2>
+        <h2 className={styles.blocks__page}>Total: {totalCount}</h2>
         <p className={styles.blocks__header}>Blocks list</p>
         <div className={styles.blocks__select}>
           <p>Items per page</p>
-          <select onChange={handlePageSizeChange} value={limit} className={styles.blocks__quantity}>
-            {selectQuantity.map((limit) => (
-              <option key={limit} value={limit}>
-                {limit}
-              </option>
-            ))}
-          </select>
+          <Select 
+            defaultValue={selectQuantityPages[0]}
+            options={selectQuantityPages}
+            onChange={(e) => handleLimit(e.value)} />
         </div>
         <Table blocks={currentBlock}/>
       </div>
       <div>
-        <Pagination
-          limit={limit}
-          totalCount={setTotalCount.length}
-          paginate={paginate}
-          setCurrentPage={setCurrentPage}
-          currentBlock={currentPage}
-        />
+        <Pagination />
       </div>
     </>
   );

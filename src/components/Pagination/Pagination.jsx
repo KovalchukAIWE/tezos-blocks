@@ -1,49 +1,58 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { BlocksContext } from '../../components/Provider/Provider';
+import { pageData } from '../../helpers/pageData';
 
 import styles from './Pagination.module.scss';
 
-const Pagination = ({ limit, paginate, currentBlock, setCurrentPage, setOffset}) => {
-  const pageNumbers = [];
-  const { handleOffset, offset } = useContext(BlocksContext);
+const Pagination = () => {
+  const { handleOffset, offset, limit, totalCount } = useContext(BlocksContext);
 
-
-
-  for (let i = 1; i <= Math.ceil(offset / limit); i += 1) {
-    pageNumbers.push(i);
-  }
+  const pages = Math.ceil(totalCount / limit);
+  const currentPages = pageData(offset, limit, pages);
+  const handlePage = (value) => {
+    if (offset === 0 && value < offset) return;
+    if (currentPages[currentPages.length - 1].pageNumber === pages && pages)
+      return;
+    handleOffset(value);
+  };
 
   return (
-    <nav className={styles.paginate}>
-      <ul className={styles.paginate__pages}>
-        {pageNumbers.map((number) => (
-          <li key={number}>
-            <a
-              className={styles.paginate__link}
-              href={currentBlock}
-              onClick={() => paginate(number)}
-            >
-              {number}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <div className={styles.paginate__buttons}>
-        <button className={styles.paginate__button} type="button" onClick={()=>handleOffset(offset - limit)}>
-          prev
+    <div className={styles.paginate}>
+      <button
+        type='button'
+        aria-label='button previous page'
+        className={styles.paginate__link}
+        onClick={() => handlePage(offset - limit)}
+      >	
+      &#60;
+      </button>
+      {currentPages.map((el) => (
+        <button
+          key={`key-${el.pageNumber}`}
+          type='button'
+          aria-label={`button ${el.pageNumber}  page`}
+          className={el.active ? styles.active : ''}
+          onClick={() => handlePage(el.pageOffset)}
+          name={el.pageNumber}
+        >
+          {el.pageNumber}
         </button>
-        <button className={styles.paginate__button} type="button" onClick={()=>handleOffset(offset + limit)}>
-          next
-        </button>
-      </div>
-    </nav>
+      ))}
+      <button
+        type='button'
+        aria-label='button next page'
+        className={styles.paginate__link}
+        onClick={() => handlePage(offset + limit)}
+      >
+        &#62;
+      </button>
+    </div>
   );
 };
 
 Pagination.propTypes = {
   offset: PropTypes.number.isRequired,
-  totalItems: PropTypes.number.isRequired,
   paginate: PropTypes.func.isRequired,
   page: PropTypes.func.isRequired,
 };
