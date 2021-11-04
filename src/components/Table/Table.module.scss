@@ -1,8 +1,15 @@
+@import "../../styles/index.scss";
+
+.container {
+  overflow: scroll;
+}
+
 .table {
-  margin: 0 auto;
+  @extend %centered;
   width: 90%;
   background-color: #fff;
   border-radius: 6px;
+  overflow: scroll;
 }
 
 td {

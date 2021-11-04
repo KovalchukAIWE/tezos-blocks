@@ -1,1 +1,1 @@
-export { default } from './bg-light';
+export { default } from "./bg-light";

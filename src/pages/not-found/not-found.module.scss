@@ -1,10 +1,10 @@
-@import '../../styles/variables.module';
+@import "../../styles/index.scss";
 
 .title,
 .subtitle {
   color: $c-text;
   width: 300px;
-  margin: 0 auto;
+  @extend %centered;
   align-items: center;
   text-align: center;
 }

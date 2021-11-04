@@ -1,15 +1,15 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
-import { BlocksContext } from '../Provider/Provider';
-import styles from './Table.module.scss';
+import React, { useContext } from "react";
+import { BlocksContext } from "../Provider/Provider";
+import styles from "./Table.module.scss";
 
-const dayjs = require('dayjs');
+const dayjs = require("dayjs");
 
 const Table = () => {
   const { blocks } = useContext(BlocksContext);
   return (
-    <div className={styles.block}>
+    <div className={styles.container}>
       <table className={styles.table}>
         <thead className={styles.item_wrapper}>
           <tr>
@@ -37,45 +37,47 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {blocks.map((item) => {
-            return (
-              <>
-                <tr key={item.baker}>
-                  <td>
-                    <div className={styles.row_title}>{item.level.toLocaleString()}</div>
-                  </td>
-                  <td>
-                    <div className={styles.row_title}>{item.bakerName || '- - -'}</div>
-                  </td>
-                  <td>
-                    <div className={styles.row_title}>
-                      {dayjs.unix(item.timestamp).format('YYYY.MM.DD HH:mm:ss')}
-                    </div>
-                  </td>
-                  <td>
-                    <div className={styles.row_title}>
-                      {item.number_of_operations}
-                    </div>
-                  </td>
-                  <td>
-                    <div className={styles.row_title}>
-                      {(item.volume * 1e-7).toFixed(6)}
-                      &#42793;
-                    </div>
-                  </td>
-                  <td>
-                    <div className={styles.row_title}>
-                      {(item.fees * 1e-6).toFixed(6)}
-                      &#42793;
-                    </div>
-                  </td>
-                  <td>
-                    <div className={styles.row_title}>{item.endorsements}</div>
-                  </td>
-                </tr>
-              </>
-            );
-          })}
+          {blocks.map((item) => (
+            <>
+              <tr key={item.baker}>
+                <td>
+                  <div className={styles.row_title}>
+                    {item.level.toLocaleString()}
+                  </div>
+                </td>
+                <td>
+                  <div className={styles.row_title}>
+                    {item.bakerName || "- - -"}
+                  </div>
+                </td>
+                <td>
+                  <div className={styles.row_title}>
+                    {dayjs.unix(item.timestamp).format("YYYY.MM.DD HH:mm:ss")}
+                  </div>
+                </td>
+                <td>
+                  <div className={styles.row_title}>
+                    {item.number_of_operations}
+                  </div>
+                </td>
+                <td>
+                  <div className={styles.row_title}>
+                    {(item.volume * 1e-7).toFixed(6)}
+                    &#42793;
+                  </div>
+                </td>
+                <td>
+                  <div className={styles.row_title}>
+                    {(item.fees * 1e-6).toFixed(6)}
+                    &#42793;
+                  </div>
+                </td>
+                <td>
+                  <div className={styles.row_title}>{item.endorsements}</div>
+                </td>
+              </tr>
+            </>
+          ))}
         </tbody>
       </table>
     </div>

@@ -1,19 +1,20 @@
-import React, { useContext }  from 'react';
-import { BlocksContext } from '../../components/Provider/Provider';
-import Table from '../../components/Table';
-import Pagination from '../../components/Pagination/Pagination';
-import { selectQuantityPages } from '../../helpers/selectQuantityPages';
-import Select from 'react-select';
+import React, { useContext } from "react";
+import Select from "react-select";
+import { BlocksContext } from "../../components/Provider/Provider";
+import Table from "../../components/Table";
+import Pagination from "../../components/Pagination/Pagination";
+import { selectQuantityPages } from "../../helpers/selectQuantityPages";
 
-import styles from './blocks.module.scss';
+import styles from "./blocks.module.scss";
 
 const Blocks = () => {
-  const { blocks, limit, offset, handleLimit, totalCount} = useContext(BlocksContext);
+  const { blocks, limit, offset, handleLimit, totalCount } =
+    useContext(BlocksContext);
 
   const indexOfLastBlock = offset * limit;
   const indexOfFirstBlock = indexOfLastBlock - limit;
   const currentBlock = blocks.slice(indexOfFirstBlock, indexOfLastBlock);
-  
+
   return (
     <>
       <div className={styles.blocks}>
@@ -21,12 +22,13 @@ const Blocks = () => {
         <p className={styles.blocks__header}>Blocks list</p>
         <div className={styles.blocks__select}>
           <p>Items per page</p>
-          <Select 
+          <Select
             defaultValue={selectQuantityPages[0]}
             options={selectQuantityPages}
-            onChange={(e) => handleLimit(e.value)} />
+            onChange={(e) => handleLimit(e.value)}
+          />
         </div>
-        <Table blocks={currentBlock}/>
+        <Table blocks={currentBlock} />
       </div>
       <div>
         <Pagination />

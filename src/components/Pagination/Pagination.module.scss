@@ -1,9 +1,8 @@
-@import '../../styles/mixins.module.scss';
-@import '../../styles/variables.module';
+@import "../../styles/index.scss";
 
 .paginate {
   width: 100%;
-  display: flex;
+  @extend %df;
   justify-content: flex-end;
   padding: 15px;
 
@@ -17,7 +16,6 @@
   }
 }
 
-
 button {
   background-color: inherit;
   border: none;
@@ -27,7 +25,7 @@ button {
   }
 }
 
-.active{
+.active {
   border: none;
   background-color: #e0f0ec;
 }

@@ -1,5 +1,4 @@
-@import '../../styles/mixins.module';
-@import '../../styles/variables.module';
+@import "../../styles/index.scss";
 
 .image {
   display: none;
@@ -23,7 +22,7 @@
 }
 
 .links {
-  @include df;
+  @extend %df;
   flex-wrap: wrap;
 
   &__text {
@@ -32,7 +31,7 @@
   }
 
   &__item {
-    @include df;
+    @extend %df;
   }
 
   &__title {
@@ -82,7 +81,7 @@
 }
 
 .logo {
-  position: absolute;
+  @extend %absolute;
   right: 120px;
   top: 65px;
 }

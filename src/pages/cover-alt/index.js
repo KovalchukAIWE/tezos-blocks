@@ -1,1 +1,1 @@
-export { default } from './cover-alt';
+export { default } from "./cover-alt";

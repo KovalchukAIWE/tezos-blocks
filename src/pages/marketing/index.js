@@ -1,1 +1,1 @@
-export { default } from './marketing';
+export { default } from "./marketing";

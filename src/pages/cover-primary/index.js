@@ -1,1 +1,1 @@
-export { default } from './cover-primary';
+export { default } from "./cover-primary";

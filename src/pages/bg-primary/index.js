@@ -1,1 +1,1 @@
-export { default } from './bg-primary';
+export { default } from "./bg-primary";

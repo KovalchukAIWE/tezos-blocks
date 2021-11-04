@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import { BlocksContext } from '../../components/Provider/Provider';
-import { pageData } from '../../helpers/pageData';
+import React, { useContext } from "react";
+// import PropTypes from 'prop-types';
+import { BlocksContext } from "../Provider/Provider";
+import { pageData } from "../../helpers/pageData";
 
-import styles from './Pagination.module.scss';
+import styles from "./Pagination.module.scss";
 
 const Pagination = () => {
   const { handleOffset, offset, limit, totalCount } = useContext(BlocksContext);
@@ -24,15 +24,15 @@ const Pagination = () => {
         aria-label='button previous page'
         className={styles.paginate__link}
         onClick={() => handlePage(offset - limit)}
-      >	
-      &#60;
+      >
+        &#60;
       </button>
       {currentPages.map((el) => (
         <button
           key={`key-${el.pageNumber}`}
           type='button'
           aria-label={`button ${el.pageNumber}  page`}
-          className={el.active ? styles.active : ''}
+          className={el.active ? styles.active : ""}
           onClick={() => handlePage(el.pageOffset)}
           name={el.pageNumber}
         >
@@ -51,10 +51,10 @@ const Pagination = () => {
   );
 };
 
-Pagination.propTypes = {
-  offset: PropTypes.number.isRequired,
-  paginate: PropTypes.func.isRequired,
-  page: PropTypes.func.isRequired,
-};
+// Pagination.propTypes = {
+//   offset: PropTypes.number.isRequired,
+//   paginate: PropTypes.func.isRequired,
+//   page: PropTypes.func.isRequired,
+// };
 
 export default Pagination;

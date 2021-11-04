@@ -1,8 +1,8 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Header from './Header/Header';
-import Routes from '../router/Routes';
-import Provider from './Provider/Provider';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import Header from "./Header/Header";
+import Routes from "../router/Routes";
+import Provider from "./Provider/Provider";
 
 function App() {
   return (

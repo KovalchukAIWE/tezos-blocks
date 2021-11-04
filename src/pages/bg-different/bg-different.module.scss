@@ -1,5 +1,4 @@
-@import '../../styles/mixins.module';
-@import '../../styles/variables.module';
+@import "../../styles/index.scss";
 
 .background {
   width: 100vw;
@@ -24,19 +23,19 @@
 }
 
 .cards {
-  position: absolute;
+  @extend %absolute;
   width: 83%;
   top: 450px;
   left: 177px;
-  @include df;
+  @extend %df;
   justify-content: space-between;
-  margin: 0 auto;
+  @extend %centered ;
   text-align: center;
 }
 
 .card {
   width: 344px;
-  @include df;
+  @extend %df;
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
@@ -54,7 +53,7 @@
 }
 
 .logo {
-  position: absolute;
+  @extend %absolute;
   right: 120px;
   top: 65px;
 }

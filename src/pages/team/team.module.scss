@@ -1,8 +1,7 @@
-@import '../../styles/mixins.module';
-@import '../../styles/variables.module';
+@import "../../styles/index.scss";
 
 .wrapper {
-  display: flex;
+  @extend %df;
   flex-wrap: wrap;
   width: 100%;
   height: auto;
@@ -48,12 +47,12 @@
 .teammates {
   color: $c-text;
   width: 1120px;
-  display: flex;
+  @extend %df;
   flex-wrap: wrap;
 }
 
 .logo {
-  position: absolute;
+  @extend %absolute;
   right: 120px;
   top: 65px;
 }

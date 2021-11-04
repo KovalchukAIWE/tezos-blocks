@@ -1,11 +1,10 @@
-@import '../../styles/mixins.module';
-@import '../../styles/variables.module';
+@import "../../styles/index.scss";
 
 .teammates {
   &__card {
     width: 542px;
     height: 191px;
-    display: flex;
+    @extend %df;
     margin-bottom: 60px;
     margin-right: 18px;
   }

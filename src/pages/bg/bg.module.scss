@@ -1,5 +1,4 @@
-@import '../../styles/mixins.module';
-@import '../../styles/variables.module';
+@import "../../styles/index.scss";
 
 .background {
   width: 100vw;
@@ -9,11 +8,11 @@
   background-size: cover;
 
   &__text {
-    color: #fcf7f7;
+    color: $c-text-white;
     height: inherit;
-    margin: 0 auto;
+    @extend %centered;
     width: 1100px;
-    display: flex;
+    @extend %df;
     align-items: center;
     text-align: center;
     font-weight: $fw-bold;
@@ -26,7 +25,7 @@
 }
 
 .logo {
-  position: absolute;
+  @extend %absolute;
   right: 120px;
   top: 65px;
 }

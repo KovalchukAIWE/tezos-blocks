@@ -1,8 +1,7 @@
-@import '../../styles/mixins.module';
-@import '../../styles/variables.module';
+@import "../../styles/index.scss";
 
 .wrapper {
-  @include df;
+  @extend %df;
   flex-wrap: wrap;
   @include mq-desktop {
     flex-wrap: nowrap;
@@ -72,13 +71,13 @@
 }
 
 .link {
-  @include df;
+  @extend %df;
   flex-wrap: wrap;
   column-gap: 5%;
 
   &__item {
     margin-top: 60px;
-    @include df;
+    @extend %df;
     align-items: center;
   }
 
@@ -94,7 +93,7 @@
 }
 
 .logo {
-  position: absolute;
+  @extend %absolute;
   right: 120px;
   top: 65px;
 }

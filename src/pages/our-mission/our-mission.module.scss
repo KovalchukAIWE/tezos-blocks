@@ -1,8 +1,7 @@
-@import '../../styles/mixins.module';
-@import '../../styles/variables.module';
+@import "../../styles/index.scss";
 
 .wrapper {
-  @include df;
+  @extend %df;
   flex-wrap: wrap;
   @include mq-desktop {
     flex-wrap: nowrap;
@@ -72,7 +71,7 @@
 }
 
 .logo {
-  position: absolute;
+  @extend %absolute;
   right: 120px;
   top: 65px;
 }

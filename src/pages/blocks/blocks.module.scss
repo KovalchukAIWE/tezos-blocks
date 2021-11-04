@@ -1,3 +1,5 @@
+@import "../../styles/index.scss";
+
 .blocks {
   width: 100%;
   height: auto;
@@ -11,7 +13,7 @@
   }
 
   &__select {
-    display: flex;
+    @extend %df;
     margin: 30px;
   }
 
@@ -22,7 +24,7 @@
   }
 
   &__page {
-    display: flex;
+    @extend %df;
     justify-content: flex-end;
   }
 }
