@@ -11,6 +11,7 @@ export const COLUMNS = [
   {
     Header: "Baker",
     accessor: "bakerName",
+    Cell: ({ value }) => (value == null ? "- - -" : value),
   },
   {
     Header: "Timestamp",

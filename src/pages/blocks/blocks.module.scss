@@ -7,9 +7,9 @@
   padding: 10px 15px;
 
   &__header {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
-    margin: 10px 0 5px 10px;
+    padding: 10px 0 5px 40px;
   }
 
   &__select {
@@ -26,5 +26,9 @@
   &__page {
     @extend %df;
     justify-content: flex-end;
+  }
+
+  &__label {
+    padding: 10px;
   }
 }

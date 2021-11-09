@@ -9,7 +9,7 @@ import { COLUMNS } from "./columns";
 import styles from "./Table.module.scss";
 
 const Table = () => {
-  const { blocks, offset, limit } = useContext(BlocksContext);
+  const { blocks } = useContext(BlocksContext);
 
   const columns = useMemo(() => COLUMNS, []);
   const data = blocks;

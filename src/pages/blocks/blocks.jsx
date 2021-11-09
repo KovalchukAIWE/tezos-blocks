@@ -21,7 +21,7 @@ const Blocks = () => {
         <h2 className={styles.blocks__page}>Total: {totalCount}</h2>
         <p className={styles.blocks__header}>Blocks list</p>
         <div className={styles.blocks__select}>
-          <p>Items per page</p>
+          <p className={styles.blocks__label}>Items per page</p>
           <Select
             defaultValue={selectQuantityPages[0]}
             options={selectQuantityPages}
