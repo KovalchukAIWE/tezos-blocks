@@ -1,86 +1,62 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
+import { useTable, useSortBy } from "react-table";
 import { BlocksContext } from "../Provider/Provider";
+import { COLUMNS } from "./columns";
 import styles from "./Table.module.scss";
 
-const dayjs = require("dayjs");
-
 const Table = () => {
-  const { blocks } = useContext(BlocksContext);
+  const { blocks, offset, limit } = useContext(BlocksContext);
+
+  const columns = useMemo(() => COLUMNS, []);
+  const data = blocks;
+
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable(
+      {
+        columns,
+        data,
+      },
+      useSortBy,
+    );
+
   return (
-    <div className={styles.container}>
-      <table className={styles.table}>
-        <thead className={styles.item_wrapper}>
-          <tr>
-            <th className={styles.item}>
-              <div className={styles.item_title}>Block ID</div>
-            </th>
-            <th className={styles.item}>
-              <div className={styles.item_title}>Baker</div>
-            </th>
-            <th className={styles.item}>
-              <div className={styles.item_title}>Timestamp</div>
-            </th>
-            <th className={styles.item}>
-              <div className={styles.item_title}># of operations</div>
-            </th>
-            <th className={styles.item}>
-              <div className={styles.item_title}>Volume</div>
-            </th>
-            <th className={styles.item}>
-              <div className={styles.item_title}>Fee</div>
-            </th>
-            <th className={styles.item}>
-              <div className={styles.item_title}>Endorsements</div>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {blocks.map((item) => (
-            <>
-              <tr key={item.baker}>
-                <td>
-                  <div className={styles.row_title}>
-                    {item.level.toLocaleString()}
-                  </div>
-                </td>
-                <td>
-                  <div className={styles.row_title}>
-                    {item.bakerName || "- - -"}
-                  </div>
-                </td>
-                <td>
-                  <div className={styles.row_title}>
-                    {dayjs.unix(item.timestamp).format("YYYY.MM.DD HH:mm:ss")}
-                  </div>
-                </td>
-                <td>
-                  <div className={styles.row_title}>
-                    {item.number_of_operations}
-                  </div>
-                </td>
-                <td>
-                  <div className={styles.row_title}>
-                    {(item.volume * 1e-7).toFixed(6)}
-                    &#42793;
-                  </div>
-                </td>
-                <td>
-                  <div className={styles.row_title}>
-                    {(item.fees * 1e-6).toFixed(6)}
-                    &#42793;
-                  </div>
-                </td>
-                <td>
-                  <div className={styles.row_title}>{item.endorsements}</div>
-                </td>
-              </tr>
-            </>
+    <>
+      <table {...getTableProps()} className={styles.table}>
+        <thead>
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                  className={styles.item}
+                >
+                  {column.render("Header")}
+                  <span>{column.isSortedDesc ? " 🔽" : " 🔼"}</span>
+                </th>
+              ))}
+            </tr>
           ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => (
+                  <td {...cell.getCellProps()} className={styles.table__cell}>
+                    {cell.render("Cell")}
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 

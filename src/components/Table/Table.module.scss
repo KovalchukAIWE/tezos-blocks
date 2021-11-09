@@ -1,19 +1,15 @@
 @import "../../styles/index.scss";
 
-.container {
-  overflow: scroll;
-}
-
 .table {
   @extend %centered;
   width: 90%;
   background-color: #fff;
   border-radius: 6px;
   overflow: scroll;
-}
-
-td {
-  text-align: center;
-  padding: 8px;
-  border-top: 3px dotted #e0f0ec;
+  
+  &__cell {
+    text-align: center;
+    padding: 8px;
+    border-top: 3px dotted #e0f0ec;
+  }
 }
