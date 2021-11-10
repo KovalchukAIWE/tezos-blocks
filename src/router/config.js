@@ -70,7 +70,7 @@ const routes = [
     component: Competitive,
   },
   {
-    path: "/target-customer",
+    path: "/customer",
     exact: true,
     component: Customer,
   },

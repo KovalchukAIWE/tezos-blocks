@@ -4,7 +4,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useMemo } from "react";
 import { useTable, useSortBy } from "react-table";
-import { BlocksContext } from "../Provider/Provider";
+import { BlocksContext } from "../../contexts/BlocksProvider";
 import { COLUMNS } from "./columns";
 import styles from "./Table.module.scss";
 

@@ -1,0 +1,49 @@
+@import "../../styles/index.scss";
+
+.menu {
+  position: fixed;
+  transform: translateX(-100%);
+  transition: all 1s;
+
+  &__active {
+    transform: translateX(0);
+    transition: all 1s;
+    position: absolute
+  }
+
+  &__content {
+    @extend %df;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    background-color: $c-grey; 
+    transition: all 1s;
+  }
+
+  &__items {
+    @extend %df;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  &__item {
+    color: $c-text-white;
+    padding: 10px;
+    text-decoration: none;
+    width: 100%;
+    &:hover {
+      background-color: #807d76;
+      cursor: pointer;
+    }
+  }
+}
+
+.blur {
+  width: 100vw;
+  height: 100vh;
+  left: 30%;
+  backdrop-filter: blur(2px);
+  position: absolute;
+}

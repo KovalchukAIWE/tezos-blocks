@@ -1,58 +1,23 @@
-import React from "react";
-
-import { Link } from "react-router-dom";
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { useState } from "react";
+import HeaderNav from "../HeaderNav";
+import items from "./path";
 
 import styles from "./Header.module.scss";
 
-const Header = () => (
-  <div className={styles.header}>
-    <nav className={styles.nav}>
-      <ul className={styles.nav__items}>
-        <Link to='/bg' className={styles.nav__item}>
-          Home
-        </Link>
-        <Link to='/bg-different' className={styles.nav__item}>
-          BG different
-        </Link>
-        <Link to='/bg-primary' className={styles.nav__item}>
-          BG primary
-        </Link>
-        <Link to='/bg-light' className={styles.nav__item}>
-          BG light
-        </Link>
-        <Link to='/our-mission' className={styles.nav__item}>
-          Our mission
-        </Link>
-        <Link to='/team' className={styles.nav__item}>
-          Team
-        </Link>
-        <Link to='/cover-primary' className={styles.nav__item}>
-          Cover primary
-        </Link>
-        <Link to='/cover-alt' className={styles.nav__item}>
-          Cover alt
-        </Link>
-        <Link to='/cover' className={styles.nav__item}>
-          Cover
-        </Link>
-        <Link to='/marketing' className={styles.nav__item}>
-          Marketing
-        </Link>
-        <Link to='/competitive' className={styles.nav__item}>
-          Competitive
-        </Link>
-        <Link to='/target-customer' className={styles.nav__item}>
-          Customer
-        </Link>
-        <Link to='/not-found' className={styles.nav__item}>
-          404
-        </Link>
-        <Link to='/blocks' className={styles.nav__item}>
-          Tezos Block
-        </Link>
-      </ul>
-    </nav>
-  </div>
-);
+const Header = () => {
+  const [active, setActive] = useState(false);
+  return (
+    <>
+      <nav className={styles.nav}>
+        <div className={styles.burger} onClick={() => setActive(!active)}>
+          <span className={styles.burger__btn} />
+        </div>
+      </nav>
+      <HeaderNav items={items} active={active} setActive={setActive} />
+    </>
+  );
+};
 
 export default Header;

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 // import PropTypes from 'prop-types';
-import { BlocksContext } from "../Provider/Provider";
+import { BlocksContext } from "../../contexts/BlocksProvider";
 import { pageData } from "../../helpers/pageData";
 
 import styles from "./Pagination.module.scss";
@@ -50,11 +50,5 @@ const Pagination = () => {
     </div>
   );
 };
-
-// Pagination.propTypes = {
-//   offset: PropTypes.number.isRequired,
-//   paginate: PropTypes.func.isRequired,
-//   page: PropTypes.func.isRequired,
-// };
 
 export default Pagination;

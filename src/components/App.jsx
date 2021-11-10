@@ -2,15 +2,15 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import Header from "./Header/Header";
 import Routes from "../router/Routes";
-import Provider from "./Provider/Provider";
+import BlocksProvider from "../contexts/BlocksProvider";
 
 function App() {
   return (
     <BrowserRouter>
-      <Provider>
+      <BlocksProvider>
         <Header />
         <Routes />
-      </Provider>
+      </BlocksProvider>
     </BrowserRouter>
   );
 }

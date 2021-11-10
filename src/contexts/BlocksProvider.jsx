@@ -1,11 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { getDataFromApi } from "../../api";
+import { getBlocks } from "../api";
 
 export const BlocksContext = createContext();
 
-const Provider = ({ children }) => {
+const BlocksProvider = ({ children }) => {
   const [limit, setLimit] = useState(10);
   const [offset, setOffset] = useState(0);
   const [blocks, setBlocks] = useState([]);
@@ -13,7 +13,7 @@ const Provider = ({ children }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const dataFromBlocksApi = await getDataFromApi(offset, limit);
+      const dataFromBlocksApi = await getBlocks(offset, limit);
       setBlocks(dataFromBlocksApi.blocks);
       setTotalCount(dataFromBlocksApi.totalCount);
     }
@@ -41,8 +41,8 @@ const Provider = ({ children }) => {
   );
 };
 
-Provider.propTypes = {
+BlocksProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Provider;
+export default BlocksProvider;
